@@ -79,7 +79,7 @@ public class DvdStoreServer {
       DvdStoreServer server = new DvdStoreServer();
       //to call on database
       try{
-          String filename = "C:\\Users\\jpjde\\Desktop\\DVD Store\\publisher.mdb";
+          String filename = "C:\\Users\\jpjde\\Desktop\\DVD Store\\DvdStoreServer\\Database\\publisher.mdb";
           String dbURL = "jdbc:ucanaccess://";
           dbURL+= filename.trim() + ";DriverID=22;READONLY=true}";
         //  System.out.println("About to Load the JDBC Driver....");
