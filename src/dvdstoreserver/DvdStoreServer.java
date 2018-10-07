@@ -14,6 +14,8 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.*;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class DvdStoreServer {
     public String tName;
@@ -79,19 +81,24 @@ public class DvdStoreServer {
       DvdStoreServer server = new DvdStoreServer();
       //to call on database
       try{
-          String filename = "C:\\Users\\jpjde\\Desktop\\DVD Store\\DvdStoreServer\\Database\\publisher.mdb";
+        Path path = Paths.get("Database/publisher.mdb");
+        Path absolutePath = path.toAbsolutePath();
+        String filename = absolutePath.toString();
+          
+
+            
           String dbURL = "jdbc:ucanaccess://";
           dbURL+= filename.trim() + ";DriverID=22;READONLY=true}";
-        //  System.out.println("About to Load the JDBC Driver....");
+          System.out.println("About to Load the JDBC Driver....");
           Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-        //  System.out.println("Driver Loaded Successfully....");
-         // System.out.println("About to get a connection....");
+          System.out.println("Driver Loaded Successfully....");
+          System.out.println("About to get a connection....");
           Connection con = DriverManager.getConnection(dbURL); 
-         // System.out.println("Connection Established Successfully....");
-         // System.out.println("Creating statement Object....");
+          System.out.println("Connection Established Successfully....");
+          System.out.println("Creating statement Object....");
           Statement serverCom = con.createStatement();
-         // System.out.println("Statement object created Successfully....");
-         // System.out.println("About to execute SQL stmt....");
+          System.out.println("Statement object created Successfully....");
+          System.out.println("About to execute SQL stmt....");
           server.listen();
           
       }
